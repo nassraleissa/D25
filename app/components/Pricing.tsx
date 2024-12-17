@@ -1,8 +1,9 @@
 'use client'
 
+import { motion, MotionProps } from 'framer-motion'
 import { Check } from 'lucide-react'
-import { ClientMotionDiv } from './ClientMotion'
 import { ClientOnly } from './ClientComponent'
+import { ReactNode } from 'react'
 
 const plans = [
   {
@@ -21,6 +22,14 @@ const plans = [
     features: ['Unlimited users', 'Unlimited projects', '24/7 support', '100GB storage'],
   },
 ]
+
+function ClientMotionDiv({ children, className, ...props }: { children: ReactNode, className?: string } & MotionProps) {
+  return (
+    <motion.div className={className} {...props}>
+      {children}
+    </motion.div>
+  )
+}
 
 export default function Pricing() {
   return (
